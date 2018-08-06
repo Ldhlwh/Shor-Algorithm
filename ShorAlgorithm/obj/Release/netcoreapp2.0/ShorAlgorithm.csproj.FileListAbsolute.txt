@@ -1,0 +1,10 @@
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\bin\Release\netcoreapp2.0\ShorAlgorithm.deps.json
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\bin\Release\netcoreapp2.0\ShorAlgorithm.runtimeconfig.json
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\bin\Release\netcoreapp2.0\ShorAlgorithm.runtimeconfig.dev.json
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\bin\Release\netcoreapp2.0\ShorAlgorithm.dll
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\bin\Release\netcoreapp2.0\ShorAlgorithm.pdb
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.AssemblyInfoInputs.cache
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.AssemblyInfo.cs
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.dll
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.pdb
