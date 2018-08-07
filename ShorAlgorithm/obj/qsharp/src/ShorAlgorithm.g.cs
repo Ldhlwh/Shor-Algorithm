@@ -4,11 +4,11 @@ using Microsoft.Quantum.Primitive;
 using Microsoft.Quantum.Simulation.Core;
 using Microsoft.Quantum.MetaData.Attributes;
 
-[assembly: OperationDeclaration("ShorAlgorithm", "Set (desired : Result, q1 : Qubit) : ()", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 158L, 7L, 5L)]
-[assembly: OperationDeclaration("ShorAlgorithm", "Ux (x : Int, N : Int, y : Qubit[]) : ()", new string[] { "Controlled" }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 401L, 18L, 71L)]
-[assembly: OperationDeclaration("ShorAlgorithm", "QFT (q : Qubit[]) : ()", new string[] { "Adjoint" }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 576L, 29L, 5L)]
-[assembly: OperationDeclaration("ShorAlgorithm", "PhaseEstimation (x : Int, N : Int, reg2 : Qubit[], t : Int, L : Int) : Int[]", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 1473L, 77L, 2L)]
-[assembly: OperationDeclaration("ShorAlgorithm", "QuantumOF (x : Int, N : Int, t : Int, L : Int) : Double", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 2157L, 118L, 2L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "Set (desired : Result, q1 : Qubit) : ()", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 194L, 6L, 91L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "Ux (x : Int, N : Int, y : Qubit[]) : ()", new string[] { "Controlled" }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 443L, 18L, 71L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "QFT (q : Qubit[]) : ()", new string[] { "Adjoint" }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 669L, 28L, 89L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "PhaseEstimation (x : Int, N : Int, reg2 : Qubit[], t : Int, L : Int) : Int[]", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 1572L, 77L, 2L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "QuantumOF (x : Int, N : Int, t : Int, L : Int) : Double", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 2331L, 117L, 102L)]
 #line hidden
 namespace ShorAlgorithm
 {
@@ -344,6 +344,7 @@ namespace ShorAlgorithm
 
 #line 96 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             QFT.Adjoint.Apply(reg1);
+            // Run Inverse Quantum Fourier Transform
 #line 98 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             var abc = 1L;
 #line 100 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"

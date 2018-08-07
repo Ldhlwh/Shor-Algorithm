@@ -6,16 +6,20 @@ namespace ShorAlgorithm
 {
     class Driver
     {
+        // Function & Operator Call Relation:
+        //
+        // Main(C#) => OrderFinding(C#) => QuantumOF(Q#) => PhaseEstimation(Q#) => (Adjoint QFT)(Q#)
+        //
         static int OrderFinding(int x, int N, int t, int L)
         {
             // Fiding the least r s.t. x ^ r % N = 1
             // t: number of bits in the 1st register, depends on our demand on accuracy
             // L: number of bits in the 2nd register, depends on the magnitude of N
-
             using (var sim = new QuantumSimulator())
             {
                 // Prepare for Phase Estimation
                 var res = QuantumOF.Run(sim, x, N, t, L).Result;
+
                 // The Continued Fractions Algorithm
                 int[] frac = new int[2 * t];
                 int up = 0;
@@ -41,17 +45,16 @@ namespace ShorAlgorithm
                 }
                 int r = dnm;
                 return r;
-                // Verify that r is the order, return -1 if not
             }
         }
 
-        static int gcd(int a, int b)
+        static int gcd(int a, int b)    // compute the greatest common factor of a and b
         {
             if (b == 0) return a;
             else return gcd(b, a % b);
         }
 
-        static int pow(int a, int r, int N)
+        static int pow(int a, int r, int N) // compute a ^ r % N
         {
             int tmp = 1;
             for (int i = 0; i < r; ++i)
@@ -62,15 +65,16 @@ namespace ShorAlgorithm
         static void Main(string[] args)
         {
             Random rd = new Random();
-            bool[] arr = new bool[31];
-            //for (int N = 3; N <= 31; N = N + 2)
-            for (int N = 15; N <= 21; N += 6)
+            bool[] arr = new bool[128];          // arr[i] = true if i has been tried and failed
+            
+            for (int N = 15; N <= 21; N += 6)   // factorize only 15 and 21
             {
                 for (int i = 2; i < N; ++i)
                 {
                     arr[i] = false;
                 }
                 int tot = 0;
+
                 Console.WriteLine("Try to factorize " + N + ":");
                 Console.WriteLine("--------------------");
                 while (true)
@@ -83,6 +87,7 @@ namespace ShorAlgorithm
                     int a = rd.Next(2, N);
                     if (arr[a])
                         continue;
+
                     Console.Write("try a = " + a);
                     tot++;
                     arr[a] = true;
@@ -95,11 +100,13 @@ namespace ShorAlgorithm
                     Console.Write(", r = " + r);
                     if (r >= N)
                     {
+                        tot--;
+                        arr[a] = false;
                         Console.WriteLine(": FAILED, r >= N");
                         continue;
                     }
                     int mc = r, c = 1, d = a;
-                    while (mc > 0)
+                    while (mc > 0)      // fast exponentiation algorithm
                     {
                         if (mc % 2 == 1)
                         {
@@ -110,6 +117,8 @@ namespace ShorAlgorithm
                     }
                     if (c != 1)
                     {
+                        tot--;
+                        arr[a] = false;
                         Console.WriteLine(": FAILED, wrong order.");
                         continue;
                     }
@@ -124,7 +133,6 @@ namespace ShorAlgorithm
                         continue;
                     }
                     Console.WriteLine(": ACCEPTED!");
-                    //Console.WriteLine("a = " + a + ", r = " + r);
 
                     int x;
                     if (pow(a, r / 2, N) - 1 > N)

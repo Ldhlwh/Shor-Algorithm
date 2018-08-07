@@ -3,7 +3,7 @@
     open Microsoft.Quantum.Primitive;
     open Microsoft.Quantum.Canon;
 
-	operation Set (desired: Result, q1: Qubit) : ()
+	operation Set (desired: Result, q1: Qubit) : ()	// Set the state of q1, either |0> or |1>
     {
         body
         {
@@ -25,7 +25,7 @@
 		controlled auto
 	}
 
-	operation QFT (q:Qubit[]) : ()
+	operation QFT (q:Qubit[]) : ()	// Quantum Fourier Transform, whose adjoint is redefined
     {
         body
         {
@@ -93,7 +93,7 @@
 
 					set xx = xx * xx % N;
 				}
-				(Adjoint QFT) (reg1);
+				(Adjoint QFT) (reg1);	// Run Inverse Quantum Fourier Transform
 			
 				let abc = 1;
 
@@ -114,7 +114,7 @@
 			return rtn;
 		}
 	}
-	operation QuantumOF (x: Int, N: Int, t: Int, L: Int) : (Double)
+	operation QuantumOF (x: Int, N: Int, t: Int, L: Int) : (Double)	// the quantum part of Order Finding
 	{
 		body
 		{
