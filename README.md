@@ -1,5 +1,8 @@
 # Shor's Algorithm
 
+By **DUAN Yuxuan, YAN Ge, ZHU Lizhen**
+ACM Class of 2020, Zhiyuan College, Shanghai Jiao Tong University
+
 This is an implementation of Shor's Factorization Algorithm using Microsoft Quantum Development Kit.
 
 ## File List
