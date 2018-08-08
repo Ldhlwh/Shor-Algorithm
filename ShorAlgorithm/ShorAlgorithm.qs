@@ -89,7 +89,7 @@
 				mutable xx = x;
 				for (i in 0 .. t-1) 
 				{
-					(Controlled Ux) ([reg1[t - i - 1]], (xx, N, reg2));
+					(Controlled Ux) ([reg1[t - i - 1]], (xx, N, reg2));	// use U_{x^j} instead of U_x^j
 
 					set xx = xx * xx % N;
 				}
