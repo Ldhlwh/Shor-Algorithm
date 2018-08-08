@@ -58,10 +58,6 @@
 			{
 				set pow[i] = 2 * pow[i-1]; 
 			}
-			for (i in 0 .. (n / 2 - 1))
-			{
-				SWAP(q[i], q[n-1-i]);
-			}
 
 			for (i in n-1 .. -1 .. 0)
 			{
@@ -71,6 +67,11 @@
 				}
 				H(q[i]);
 			}
+			
+			//for (i in 0 .. (n / 2 - 1))
+			//{
+				//SWAP(q[i], q[n-1-i]);
+			//}
 		}
 	}
 	operation PhaseEstimation(x: Int, N: Int, reg2: Qubit[], t: Int, L: Int) : (Int[])
@@ -87,16 +88,14 @@
 				}
 
 				mutable xx = x;
-				for (i in 0 .. t-1) 
+				for (i in 0 .. t - 1) 
 				{
-					(Controlled Ux) ([reg1[t - i - 1]], (xx, N, reg2));	// use U_{x^j} instead of U_x^j
+					(Controlled Ux) ([reg1[i]], (xx, N, reg2));	// use U_{x^j} instead of U_x^j
 
 					set xx = xx * xx % N;
 				}
 				(Adjoint QFT) (reg1);	// Run Inverse Quantum Fourier Transform
 			
-				let abc = 1;
-
 				for(i in 0 .. t - 1)
 				{
 					let result = M(reg1[i]);

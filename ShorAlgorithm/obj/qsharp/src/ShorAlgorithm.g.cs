@@ -7,8 +7,8 @@ using Microsoft.Quantum.MetaData.Attributes;
 [assembly: OperationDeclaration("ShorAlgorithm", "Set (desired : Result, q1 : Qubit) : ()", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 194L, 6L, 91L)]
 [assembly: OperationDeclaration("ShorAlgorithm", "Ux (x : Int, N : Int, y : Qubit[]) : ()", new string[] { "Controlled" }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 443L, 18L, 71L)]
 [assembly: OperationDeclaration("ShorAlgorithm", "QFT (q : Qubit[]) : ()", new string[] { "Adjoint" }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 669L, 28L, 89L)]
-[assembly: OperationDeclaration("ShorAlgorithm", "PhaseEstimation (x : Int, N : Int, reg2 : Qubit[], t : Int, L : Int) : Int[]", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 1572L, 77L, 2L)]
-[assembly: OperationDeclaration("ShorAlgorithm", "QuantumOF (x : Int, N : Int, t : Int, L : Int) : Double", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 2331L, 117L, 102L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "PhaseEstimation (x : Int, N : Int, reg2 : Qubit[], t : Int, L : Int) : Int[]", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 1585L, 78L, 2L)]
+[assembly: OperationDeclaration("ShorAlgorithm", "QuantumOF (x : Int, N : Int, t : Int, L : Int) : Double", new string[] { }, "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs", 2350L, 116L, 102L)]
 #line hidden
 namespace ShorAlgorithm
 {
@@ -211,25 +211,23 @@ namespace ShorAlgorithm
                 pow[i] = (2L * pow[(i - 1L)]);
             }
 
-#line 61 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
-            foreach (var i in new Range(0L, ((n / 2L) - 1L)))
-            {
-#line 63 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
-                MicrosoftQuantumPrimitiveSWAP.Apply((q[i], q[((n - 1L) - i)]));
-            }
-
-#line 66 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 62 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             foreach (var i in new Range((n - 1L), -(1L), 0L))
             {
-#line 68 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 64 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 foreach (var j in new Range((n - 1L), -(1L), (i + 1L)))
                 {
                 }
 
-#line 72 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 68 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 MicrosoftQuantumPrimitiveH.Apply(q[i]);
             }
 
+            //for (i in 0 .. (n / 2 - 1))
+            //{
+            //SWAP(q[i], q[n-1-i]);
+            //}
+            ;
 #line hidden
             return QVoid.Instance;
         }
@@ -317,61 +315,60 @@ namespace ShorAlgorithm
         public override Func<(Int64,Int64,QArray<Qubit>,Int64,Int64), QArray<Int64>> Body => (__in) =>
         {
             var (x,N,reg2,t,L) = __in;
-#line 80 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
-            var rtn = new QArray<Int64>(t);
 #line 81 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+            var rtn = new QArray<Int64>(t);
+#line 82 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             var reg1 = Allocate.Apply(t);
-#line 83 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 84 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             foreach (var i in new Range(0L, (t - 1L)))
             {
-#line 85 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
-                Set.Apply((Result.Zero, reg1[i]));
 #line 86 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+                Set.Apply((Result.Zero, reg1[i]));
+#line 87 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 MicrosoftQuantumPrimitiveH.Apply(reg1[i]);
             }
 
-#line 89 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
-            var xx = x;
 #line 90 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+            var xx = x;
+#line 91 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             foreach (var i in new Range(0L, (t - 1L)))
             {
-#line 92 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 93 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 Ux.Controlled.Apply((new QArray<Qubit>()
-                {reg1[((t - i) - 1L)]}, (xx, N, reg2)));
-#line 94 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+                {reg1[i]}, (xx, N, reg2)));
+                // use U_{x^j} instead of U_x^j
+#line 95 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 xx = ((xx * xx) % N);
             }
 
-#line 96 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 97 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             QFT.Adjoint.Apply(reg1);
             // Run Inverse Quantum Fourier Transform
-#line 98 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
-            var abc = 1L;
-#line 100 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 99 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             foreach (var i in new Range(0L, (t - 1L)))
             {
-#line 102 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 101 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 var result = M.Apply(reg1[i]);
-#line 103 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 102 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 if ((result == Result.Zero))
                 {
-#line 105 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 104 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                     rtn[i] = 0L;
                 }
 
-#line 107 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 106 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 if ((result == Result.One))
                 {
-#line 109 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 108 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                     rtn[i] = 1L;
                 }
             }
 
-#line 112 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 111 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             ResetAll.Apply(reg1);
 #line hidden
             Release.Apply(reg1);
-#line 114 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 113 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             return rtn;
         }
 
@@ -446,42 +443,42 @@ namespace ShorAlgorithm
         public override Func<(Int64,Int64,Int64,Int64), Double> Body => (__in) =>
         {
             var (x,N,t,L) = __in;
-#line 121 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 120 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             var phi = 0D;
-#line 122 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 121 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             var two = 0.5D;
-#line 123 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 122 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             var reg2 = Allocate.Apply(L);
-#line 125 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 124 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             foreach (var i in new Range(1L, (L - 1L)))
             {
-#line 127 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 126 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 Set.Apply((Result.Zero, reg2[i]));
             }
 
-#line 129 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 128 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             Set.Apply((Result.One, reg2[0L]));
-#line 131 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 130 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             var outcome = PhaseEstimation.Apply((x, N, reg2, t, L));
-#line 133 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 132 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             foreach (var i in new Range(0L, (t - 1L)))
             {
-#line 135 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 134 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 if ((outcome[i] == 1L))
                 {
-#line 137 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 136 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                     phi = (phi + two);
                 }
 
-#line 139 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 138 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
                 two = (two * 0.5D);
             }
 
-#line 141 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 140 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             ResetAll.Apply(reg2);
 #line hidden
             Release.Apply(reg2);
-#line 143 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
+#line 142 "C:\\Users\\qydyx\\Desktop\\ShorAlgorithm\\ShorAlgorithm\\ShorAlgorithm.qs"
             return phi;
         }
 

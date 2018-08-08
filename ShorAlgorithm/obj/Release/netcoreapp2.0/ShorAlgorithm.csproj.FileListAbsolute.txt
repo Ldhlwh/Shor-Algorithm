@@ -8,3 +8,4 @@ C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\Sho
 C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.AssemblyInfo.cs
 C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.dll
 C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.pdb
+C:\Users\qydyx\Desktop\ShorAlgorithm\ShorAlgorithm\obj\Release\netcoreapp2.0\ShorAlgorithm.csprojAssemblyReference.cache
